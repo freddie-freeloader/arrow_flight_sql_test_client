@@ -16,7 +16,7 @@ public class App {
             // Get status of the connection
             System.out.println("Connection status: " + connection.isClosed());
             // Execute a query
-            connection.createStatement().executeQuery("SELECT * FROM orders LIMIT 10");
+            connection.createStatement().executeQuery("SELECT \"c_custkey\" FROM \"main\".\"customer\" LIMIT 10;");
             connection.close();
         } catch (SQLException e) {
             System.out.println("SQL Exception: " + e);
