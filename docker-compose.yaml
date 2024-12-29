@@ -1,0 +1,20 @@
+services:
+  sqlflite:
+    image: voltrondata/sqlflite:latest
+    container_name: sqlflite
+    init: true
+    tty: true
+    environment:
+      - TLS_ENABLED=1
+      - SQLFLITE_PASSWORD=sqlflite_password
+      - PRINT_QUERIES=1
+    ports:
+      - "31337:31337"
+    networks:
+      - xdb-network
+    restart: always
+    pull_policy: missing
+
+networks:
+  xdb-network:
+    external: true
